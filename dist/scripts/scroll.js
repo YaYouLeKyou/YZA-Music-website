@@ -17,13 +17,6 @@ window.addEventListener('scroll', function() {
     const scrollValue = (window.innerHeight + window.scrollY) / bodyHeight;
 
     // IMAGE APPEAR (APPEAR AT 42% OF SCROLL)
-    if (scrollValue > 0.35 && scrollValue < 0.55) {
-      bg.style.background = "rgb(255,255,255)";
-      bg.style.transition = "all ease 1s";
-    } else if (scrollValue > 0.55) {
-      bg.style.background = "black";
-    } else {
-      bg.style.background = "rgb(0,0,0)";
-    }
+    // Background color change removed for mobile optimization
   }, 16); // ~60fps
 });
