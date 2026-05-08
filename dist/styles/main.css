@@ -815,6 +815,12 @@ h6, .o-h6 {
   
    }
 
+@media (max-width: 699px) {
+  .o-scroll {
+    padding-bottom: 120px; /* Space for the fixed player */
+  }
+}
+
 .o-title {
   color: rgba(63, 58, 90, 0.8);
   overflow: hidden;
@@ -1027,6 +1033,10 @@ html.has-scroll-dragging {
     height: auto;
   }
   
+  .logo img{
+    width: 90vw !important;
+    max-width: 500px;
+  }
 }
 
 

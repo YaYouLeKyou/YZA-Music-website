@@ -65,9 +65,11 @@ links.forEach(link => {
 
 /* --------------------- CLICK -------------------------- */
 
-document.addEventListener('click', () => {
-  mouseCursor.classList.add('expand');
-  setTimeout(() => {
-    mouseCursor.classList.remove('expand');
-  }, 500);
-});
+if (window.innerWidth > 699) {
+  document.addEventListener('click', () => {
+    mouseCursor.classList.add('expand');
+    setTimeout(() => {
+      mouseCursor.classList.remove('expand');
+    }, 500);
+  });
+}
