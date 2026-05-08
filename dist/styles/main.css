@@ -2325,6 +2325,7 @@ backdrop-filter: blur(10px);
 
   .youtube-overlay {
     pointer-events: none;
+    display: none;
   }
 
   .youtube {

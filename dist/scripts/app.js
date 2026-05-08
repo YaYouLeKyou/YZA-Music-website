@@ -1,7 +1,9 @@
 let mouseCursor = document.querySelector('.cursor');
 let links = document.querySelectorAll('.c-summary_list li, p, span, .u-text, h3, a, video, .alone, img, .title, .c-direction-block_item_inner, .background-video .c-section_infos_inner, .c-fixed, .c-damn');
 
-window.addEventListener('mousemove', cursor);
+if (window.innerWidth > 699) {
+  window.addEventListener('mousemove', cursor);
+}
 
 function cursor(e) {
     mouseCursor.style.top = (e.pageY) + "px" 
