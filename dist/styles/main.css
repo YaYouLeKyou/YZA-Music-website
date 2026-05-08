@@ -2292,7 +2292,8 @@ backdrop-filter: blur(10px);
   position: relative;
   top: 0 !important;
   width: 100%;
-  height: 500px;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
   left: 0 !important;
   transform: none !important;
   border-radius: 25px;
@@ -2304,6 +2305,22 @@ backdrop-filter: blur(10px);
 .youtube:hover{
   opacity: 1;
   filter: blur(0);
+}
+
+@media screen and (max-width: 700px) {
+  .youtube-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .youtube-wrapper {
+    width: 100% !important;
+  }
+
+  .youtube {
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
 }
 
 .c-summary_list audio {
