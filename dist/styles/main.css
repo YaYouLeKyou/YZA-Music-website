@@ -2454,3 +2454,10 @@ backdrop-filter: blur(10px);
   z-index: 1;
 }
 
+@media (max-width: 699px) {
+  .youtube {
+    height: 250px !important;
+    width: 100% !important;
+  }
+}
+
