@@ -3,6 +3,8 @@ let links = document.querySelectorAll('.c-summary_list li, p, span, .u-text, h3,
 
 if (window.innerWidth > 699) {
   window.addEventListener('mousemove', cursor);
+} else {
+  mouseCursor.style.display = 'none';
 }
 
 function cursor(e) {
@@ -13,28 +15,32 @@ function cursor(e) {
 const youtubeOverlays = document.querySelectorAll('.youtube-overlay');
 const scrollParent = document.querySelector('[data-scroll-container]') || document.documentElement;
 
-function handleYoutubeWheel(e) {
-  e.preventDefault();
-  scrollParent.scrollBy({ top: e.deltaY, left: e.deltaX, behavior: 'auto' });
+if (window.innerWidth <= 699) {
+  youtubeOverlays.forEach(overlay => overlay.remove());
+} else {
+  function handleYoutubeWheel(e) {
+    e.preventDefault();
+    scrollParent.scrollBy({ top: e.deltaY, left: e.deltaX, behavior: 'auto' });
+  }
+
+  function disableOverlayForClick(overlay) {
+    overlay.style.pointerEvents = 'none';
+  }
+
+  function enableOverlay(overlay) {
+    overlay.style.pointerEvents = 'auto';
+  }
+
+  youtubeOverlays.forEach(overlay => {
+    overlay.addEventListener('wheel', handleYoutubeWheel, { passive: false });
+    overlay.addEventListener('mousewheel', handleYoutubeWheel, { passive: false });
+    overlay.addEventListener('mousedown', () => disableOverlayForClick(overlay));
+  });
+
+  window.addEventListener('mouseup', () => {
+    youtubeOverlays.forEach(enableOverlay);
+  });
 }
-
-function disableOverlayForClick(overlay) {
-  overlay.style.pointerEvents = 'none';
-}
-
-function enableOverlay(overlay) {
-  overlay.style.pointerEvents = 'auto';
-}
-
-youtubeOverlays.forEach(overlay => {
-  overlay.addEventListener('wheel', handleYoutubeWheel, { passive: false });
-  overlay.addEventListener('mousewheel', handleYoutubeWheel, { passive: false });
-  overlay.addEventListener('mousedown', () => disableOverlayForClick(overlay));
-});
-
-window.addEventListener('mouseup', () => {
-  youtubeOverlays.forEach(enableOverlay);
-});
 
 // Hide cursor when mouse leaves the window
 document.addEventListener('mouseleave', () => {

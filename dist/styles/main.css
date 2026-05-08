@@ -2323,11 +2323,6 @@ backdrop-filter: blur(10px);
     width: 100% !important;
   }
 
-  .youtube-overlay {
-    pointer-events: none;
-    display: none;
-  }
-
   .youtube {
     height: auto !important;
     aspect-ratio: 16 / 9;
