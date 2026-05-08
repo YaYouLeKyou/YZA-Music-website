@@ -2146,6 +2146,12 @@ html.has-scroll-dragging {
     
 }
 
+@media (max-width: 699px) {
+  .cursor {
+    display: none;
+  }
+}
+
 
 
 @keyframes Anim2 {
